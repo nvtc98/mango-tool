@@ -1,0 +1,18 @@
+{
+  "name": "mango-tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nvtc98/mango-tools.git",
+  "author": "nvtc.98 <nvtc.98@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node --inspect index.js",
+    "deploy": "git add . && git commit -m\"deploy\" && git push heroku master"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.4.1",
+    "@postlight/mercury-parser": "^2.2.0",
+    "express": "^4.17.1"
+  }
+}

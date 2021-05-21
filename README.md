@@ -1,2 +1,2 @@
-# mango-tool
-mango-tool includes tools. Yes, tools.
+# mango-tools
+mango-tools includes tools. Yes, tools.

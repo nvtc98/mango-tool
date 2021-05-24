@@ -36,8 +36,10 @@ const startServer = (port = defaultPort) => {
   });
 
   app.post("/get-content", async (request, response) => {
+    console.log("Ff");
     const { text = "" } = request.body;
-    response.status(200).send(getContent(text));
+    console.log(request.body);
+    response.status(200).send(await getContent(text));
   });
 
   const server = app.listen(process.env.PORT || port, (error) => {

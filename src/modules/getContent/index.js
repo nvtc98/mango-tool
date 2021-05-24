@@ -20,6 +20,7 @@ const getContent = async (text) => {
       list.push();
     }
   }
+  console.log(list);
   return list;
 };
 

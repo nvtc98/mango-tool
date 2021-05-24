@@ -29,7 +29,7 @@ const startServer = (port = defaultPort) => {
 
   app.post("/parse", async (request, response) => {
     const { url = "", html = "" } = request.body;
-    console.log(request);
+    console.log(request, request.body, url, html);
     if (!url || !html) {
       return response.status(400).send("No url included");
     }

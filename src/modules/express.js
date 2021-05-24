@@ -1,6 +1,7 @@
 const express = require("express");
 const Mercury = require("@postlight/mercury-parser");
 // var { Readability } = require("@mozilla/readability");
+const { getContent } = require("./getContent");
 
 const defaultPort = 5000;
 const app = express();
@@ -32,6 +33,11 @@ const startServer = (port = defaultPort) => {
     Mercury.parse(url, { html }).then((result) =>
       response.status(200).send(result)
     );
+  });
+
+  app.post("/get-content", async (request, response) => {
+    const { text = "" } = request.body;
+    response.status(200).send(getContent(text));
   });
 
   const server = app.listen(process.env.PORT || port, (error) => {

@@ -29,10 +29,12 @@ const startServer = (port = defaultPort) => {
 
   app.post("/parse", async (request, response) => {
     const { url = "", html = "" } = request.body;
-    console.log(request, request.body, url, html);
+    console.log("ff", url);
     if (!url || !html) {
+      console.log("url", url);
       return response.status(400).send("No url included");
     }
+    console.log("yes url", url);
     Mercury.parse(url, { html }).then((result) =>
       response.status(200).send(result)
     );

@@ -16,6 +16,7 @@ const getContent = async (text) => {
   const imgList = $("img");
   for (let i = 0; i < imgList.length; ++i) {
     const src = $(imgList[i]).attr("src");
+    console.log("src", src);
     if (src.search("http") !== -1) {
       list.push();
     }

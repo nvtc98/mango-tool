@@ -2,6 +2,7 @@ const express = require("express");
 const Mercury = require("@postlight/mercury-parser");
 // var { Readability } = require("@mozilla/readability");
 const { getContent } = require("./getContent");
+const getYoutube = require("./youtube");
 
 const defaultPort = 5000;
 const app = express();
@@ -40,6 +41,11 @@ const startServer = (port = defaultPort) => {
   app.post("/get-images", async (request, response) => {
     const { text = "" } = request.body;
     response.status(200).send(await getContent(text));
+  });
+
+  app.get("/youtube", async (request, response) => {
+    const { url = "" } = request.query;
+    response.status(200).send(await getYoutube(url));
   });
 
   const server = app.listen(process.env.PORT || port, (error) => {
